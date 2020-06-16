@@ -4,6 +4,7 @@ import java.util.List;
 
 import javax.inject.Inject;
 import javax.transaction.Transactional;
+import javax.validation.Valid;
 import javax.ws.rs.Consumes;
 import javax.ws.rs.GET;
 import javax.ws.rs.POST;
@@ -24,7 +25,7 @@ public class UserResource {
 	@POST
 	@Transactional
 	@Consumes(MediaType.APPLICATION_JSON)
-	public Response persist(User user) {
+	public Response persist(@Valid User user) {
 		repository.persist(user);
 		return Response.status(201).build();
 	}
