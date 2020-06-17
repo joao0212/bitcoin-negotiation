@@ -16,7 +16,7 @@ import org.jboss.resteasy.annotations.jaxrs.PathParam;
 import br.com.alura.model.Bitcoin;
 import br.com.alura.service.BitcoinService;
 
-@Path("/negotiation")
+@Path("/negotiations")
 public class BitcoinResource {
 
 	private static final Logger LOG = Logger.getLogger(BitcoinResource.class);

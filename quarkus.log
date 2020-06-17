@@ -27,3 +27,8 @@
 2020-06-16 17:44:25,013 victorpc NativeImageGeneratorRunner$JDK9Plus[20337] INFO  [io.quarkus] (main) bitcoin-negotiation 1.0.0-SNAPSHOT native (powered by Quarkus 1.5.0.Final) started in 0.030s. Listening on: http://0.0.0.0:8080
 2020-06-16 17:44:25,014 victorpc NativeImageGeneratorRunner$JDK9Plus[20337] INFO  [io.quarkus] (main) Profile prod activated. 
 2020-06-16 17:44:25,014 victorpc NativeImageGeneratorRunner$JDK9Plus[20337] INFO  [io.quarkus] (main) Installed features: [agroal, cdi, hibernate-orm, hibernate-orm-panache, hibernate-validator, jdbc-mysql, mutiny, narayana-jta, rest-client, resteasy, resteasy-jsonb]
+2020-06-16 18:04:38,025 victorpc NativeImageGeneratorRunner$JDK9Plus[20337] INFO  [io.quarkus] (main) bitcoin-negotiation stopped in 0.004s
+2020-06-17 14:08:04,353 victorpc NativeImageGeneratorRunner$JDK9Plus[20337] INFO  [io.quarkus] (main) bitcoin-negotiation 1.0.0-SNAPSHOT native (powered by Quarkus 1.5.0.Final) started in 0.259s. Listening on: http://0.0.0.0:8080
+2020-06-17 14:08:04,354 victorpc NativeImageGeneratorRunner$JDK9Plus[20337] INFO  [io.quarkus] (main) Profile prod activated. 
+2020-06-17 14:08:04,354 victorpc NativeImageGeneratorRunner$JDK9Plus[20337] INFO  [io.quarkus] (main) Installed features: [agroal, cdi, hibernate-orm, hibernate-orm-panache, hibernate-validator, jdbc-mysql, mutiny, narayana-jta, rest-client, resteasy, resteasy-jsonb]
+2020-06-17 14:09:05,239 victorpc NativeImageGeneratorRunner$JDK9Plus[20337] INFO  [io.quarkus] (main) bitcoin-negotiation stopped in 0.008s
