@@ -18,8 +18,7 @@ public class OrderShippingService {
 			orderShipping.status = "Sent";
 			orderShipping.persist();
 			return Response.status(Status.CREATED).build();
-		} else {
-			return Response.status(Status.BAD_REQUEST.getStatusCode(), "Usuário não cadastrado").build();
 		}
+		return Response.status(Status.BAD_REQUEST.getStatusCode(), "Usuário não cadastrado").build();
 	}
 }
