@@ -3,6 +3,7 @@ package br.com.alura.resource;
 import java.util.List;
 import java.util.stream.Collectors;
 
+import javax.annotation.security.PermitAll;
 import javax.inject.Inject;
 import javax.ws.rs.GET;
 import javax.ws.rs.Path;
@@ -26,6 +27,7 @@ public class BitcoinResource {
 	BitcoinService bitcoinService;
 
 	@GET
+	@PermitAll
 	@Produces(MediaType.APPLICATION_JSON)
 	public List<Bitcoin> getAll() {
 		LOG.info("Chamando o método getAll(..)");
@@ -33,6 +35,7 @@ public class BitcoinResource {
 	}
 
 	@GET
+	@PermitAll
 	@Path("/{type}")
 	@Produces(MediaType.APPLICATION_JSON)
 	public List<Bitcoin> getByType(@PathParam String type) {

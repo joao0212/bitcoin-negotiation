@@ -2,6 +2,7 @@ package br.com.alura.resource;
 
 import java.util.List;
 
+import javax.annotation.security.RolesAllowed;
 import javax.inject.Inject;
 import javax.validation.Valid;
 import javax.ws.rs.Consumes;
@@ -22,12 +23,14 @@ public class OrderShippingResource {
 	OrderShippingService service;
 
 	@POST
+	@RolesAllowed("user")
 	@Consumes(MediaType.APPLICATION_JSON)
 	public Response persist(@Valid OrderShipping orderShipping) {
 		return service.persist(orderShipping);
 	}
 
 	@GET
+	@RolesAllowed("user")
 	@Produces(MediaType.APPLICATION_JSON)
 	public List<OrderShipping> listAll() {
 		return OrderShipping.listAll();

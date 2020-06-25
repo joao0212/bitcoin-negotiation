@@ -2,6 +2,8 @@ package br.com.alura.resource;
 
 import java.util.List;
 
+import javax.annotation.security.PermitAll;
+import javax.annotation.security.RolesAllowed;
 import javax.transaction.Transactional;
 import javax.validation.Valid;
 import javax.ws.rs.Consumes;
@@ -11,7 +13,6 @@ import javax.ws.rs.Path;
 import javax.ws.rs.Produces;
 import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
-import javax.ws.rs.core.Response.Status;
 
 import br.com.alura.model.User;
 
@@ -19,14 +20,15 @@ import br.com.alura.model.User;
 public class UserResource {
 
 	@POST
+	@PermitAll
 	@Transactional
 	@Consumes(MediaType.APPLICATION_JSON)
 	public Response persist(@Valid User user) {
-		user.persist();
-		return Response.status(Status.CREATED).build();
+		return User.add(user);
 	}
 
 	@GET
+	@RolesAllowed("user")
 	@Produces(MediaType.APPLICATION_JSON)
 	public List<User> listAll() {
 		return User.listAll();
