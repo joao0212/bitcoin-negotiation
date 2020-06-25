@@ -2,7 +2,6 @@ package br.com.alura.resource;
 
 import java.util.List;
 
-import javax.annotation.security.PermitAll;
 import javax.annotation.security.RolesAllowed;
 import javax.transaction.Transactional;
 import javax.validation.Valid;
@@ -20,15 +19,15 @@ import br.com.alura.model.User;
 public class UserResource {
 
 	@POST
-	@PermitAll
 	@Transactional
+	@RolesAllowed("admin")
 	@Consumes(MediaType.APPLICATION_JSON)
 	public Response persist(@Valid User user) {
 		return User.add(user);
 	}
 
 	@GET
-	@RolesAllowed("user")
+	@RolesAllowed("admin")
 	@Produces(MediaType.APPLICATION_JSON)
 	public List<User> listAll() {
 		return User.listAll();
