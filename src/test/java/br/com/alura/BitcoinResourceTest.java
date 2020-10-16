@@ -10,17 +10,7 @@ import io.quarkus.test.junit.QuarkusTest;
 public class BitcoinResourceTest {
 
 	@Test
-	public void testNegotiationEndpoint() {
-		given().when().get("/negotiations").then().statusCode(200);
-	}
-
-	@Test
-	public void testNegotiationSellEndPoint() {
-		given().with().get("negotiations/sell").then().statusCode(200);
-	}
-
-	@Test
-	public void testNegotiationBuyEndPoint() {
-		given().when().get("negotiations/buy").then().statusCode(200);
+	public void testarOrdensProcessadasEndpoint() {
+		given().when().get("/bitcoins/processados").then().statusCode(200);
 	}
 }

@@ -1,50 +1,46 @@
 package br.com.alura.model;
 
+import java.time.LocalDate;
+
 public class Bitcoin {
 
-	private Integer tid;
-	private String date;
-	private String type;
-	private Double price;
-	private Double amount;
+	public Bitcoin() {
 
-	public Integer getTid() {
-		return tid;
 	}
 
-	public void setTid(Integer tid) {
-		this.tid = tid;
+	public Bitcoin(Double preco, String tipo, LocalDate data) {
+		super();
+		this.preco = preco;
+		this.tipo = tipo;
+		this.data = data;
 	}
 
-	public String getDate() {
-		return date;
+	private Long id;
+	private Double preco;
+	private String tipo;
+	private LocalDate data;
+
+	public void setPreco(Double preco) {
+		this.preco = preco;
 	}
 
-	public void setDate(String date) {
-		this.date = date;
+	public void setTipo(String tipo) {
+		this.tipo = tipo;
 	}
 
-	public String getType() {
-		return type;
+	public void setData(LocalDate data) {
+		this.data = data;
 	}
 
-	public void setType(String type) {
-		this.type = type;
+	public Double getPreco() {
+		return preco;
 	}
 
-	public Double getPrice() {
-		return price;
+	public String getTipo() {
+		return tipo;
 	}
 
-	public void setPrice(Double price) {
-		this.price = price;
-	}
-
-	public Double getAmount() {
-		return amount;
-	}
-
-	public void setAmount(Double amount) {
-		this.amount = amount;
+	public LocalDate getData() {
+		return data;
 	}
 }
