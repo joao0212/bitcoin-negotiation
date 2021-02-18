@@ -56,7 +56,7 @@ public class OrdemResource {
 	}
 
 	@PUT
-	@Path("/{id}/processada")
+	@Path("/{id}/processar")
 	@RolesAllowed("admin")
 	public Response processar(@PathParam("id") Long id) {
 		ordemService.processar(id);

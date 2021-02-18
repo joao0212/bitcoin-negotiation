@@ -16,25 +16,23 @@ import io.quarkus.elytron.security.common.BcryptUtil;
 @ApplicationScoped
 public class UsuarioService {
 
-	@Inject
-	UsuarioRepository usuarioRepository;
+    @Inject
+    UsuarioRepository usuarioRepository;
 
-	public void adicionar(Usuario usuario) {
-		usuario.setRole("user");
-		usuario.setPassword(BcryptUtil.bcryptHash(usuario.getPassword()));
-		usuarioRepository.persist(usuario);
-	}
+    public void adicionar(Usuario usuario) {
+        usuario.setRole("user");
+        usuario.setPassword(BcryptUtil.bcryptHash(usuario.getPassword()));
+        usuarioRepository.persist(usuario);
+    }
 
-	public List<Usuario> listar() {
-		return usuarioRepository.listAll();
-	}
+    public List<Usuario> listar() {
+        return usuarioRepository.listAll();
+    }
 
-	public void validar(Long usuarioId, SecurityContext securityContext) {
-		Optional<Usuario> usuarioOptional = usuarioRepository.findByIdOptional(usuarioId);
-		Usuario usuario = usuarioOptional.orElseThrow(() -> new RecursoNaoEncontradoException());
-		if (!usuario.getUsername().equals(securityContext.getUserPrincipal().getName())) {
-			throw new UsuariosDiferentesException();
-		}
-	}
-
+    public void validar(Long usuarioId, SecurityContext securityContext) {
+        Usuario usuario = usuarioRepository.findByIdOptional(usuarioId).orElseThrow(RecursoNaoEncontradoException::new);
+        if (!usuario.getUsername().equals(securityContext.getUserPrincipal().getName())) {
+            throw new UsuariosDiferentesException();
+        }
+    }
 }

@@ -33,7 +33,7 @@ public class OrdemService {
 	public void adicionar(Ordem ordem, SecurityContext securityContext) {
 		usuarioService.validar(ordem.getUsuarioId(), securityContext);
 		ordem.setData(LocalDate.now());
-		ordem.setStatus(br.com.alura.enuns.Status.ENVIADA);
+		ordem.setStatus(Status.ENVIADA);
 		ordemRepository.persist(ordem);
 	}
 
@@ -42,13 +42,13 @@ public class OrdemService {
 	}
 
 	public void cancelar(Long id, SecurityContext securityContext) {
-		Ordem ordem = ordemRepository.findByIdOptional(id).orElseThrow(() -> new RecursoNaoEncontradoException());
+		Ordem ordem = ordemRepository.findByIdOptional(id).orElseThrow(RecursoNaoEncontradoException::new);
 		usuarioService.validar(ordem.getUsuarioId(), securityContext);
 		ordemRepository.alterar(ordem.getId(), Status.CANCELADA);
 	}
 
 	public void processar(Long id) {
-		Ordem ordem = ordemRepository.findByIdOptional(id).orElseThrow(() -> new RecursoNaoEncontradoException());
+		Ordem ordem = ordemRepository.findByIdOptional(id).orElseThrow(RecursoNaoEncontradoException::new);
 		ordemRepository.alterar(ordem.getId(), Status.PROCESSADA);
 		bitcoinService.enviar(new Bitcoin(ordem.getPreco(), ordem.getTipo().name(), LocalDate.now()));
 	}
