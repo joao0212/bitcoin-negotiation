@@ -40,7 +40,7 @@ public class UsuarioResource {
 	public Response listar() {
 		List<Usuario> usuarios = usuarioService.listar();
 		return Response
-				.ok(usuarios.stream().map(usuario -> this.transformarParaDTO(usuario)).collect(Collectors.toList()))
+				.ok(usuarios.stream().map(this::transformarParaDTO).collect(Collectors.toList()))
 				.build();
 	}
 

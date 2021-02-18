@@ -41,7 +41,7 @@ public class Ordem {
 	@Enumerated(EnumType.STRING)
 	private Status status;
 
-	@Column(name = "usuario_id")
+	@Column(name = "user_id")
 	@NotNull(message = "UserId não pode ser nulo.")
 	private Long usuarioId;
 

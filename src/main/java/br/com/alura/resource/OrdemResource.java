@@ -43,7 +43,7 @@ public class OrdemResource {
 	@Produces(MediaType.APPLICATION_JSON)
 	public Response listar() {
 		List<Ordem> ordens = ordemService.listar();
-		return Response.ok(ordens.stream().map(ordem -> transformarParaDTO(ordem)).collect(Collectors.toList()))
+		return Response.ok(ordens.stream().map(this::transformarParaDTO).collect(Collectors.toList()))
 				.build();
 	}
 
